@@ -1,14 +1,26 @@
 doctype html
-html(lang= 'ru')
-  head
-    meta(charset='utf-8')
-    title= 'Быстрый запуск Webpack'
-  body
-    p Файл откомпилирован шаблонизатором Pug
-    .logo-png
-      img.logo1(src=require('./images/icon.png') alt='Загрузка PNG изображений с помощью Webpack')
-    .logo-svg
-      img.logo2(src=require('./images/icon.svg'), alt='Загрузка SVG изображений с помощью Webpack')
-
-      include:markdown-it ../content/article.md
-
+html(lang='ru')
+    head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='color-scheme' content='light dark')
+    title CyberTavern
+    link(rel='icon' href=require('./images/icon.svg'))
+    link(rel='icon' href='./src/images/favicon.ico')
+    link(rel='icon' href=require('./images/icon.png'))
+    body.page
+        header.header
+            div.header__buttons
+                button.header__buttons-home.button.menu-button На главную
+                button.header__buttons-animation.button.menu-button Отключить анимацию
+            div.header__logo
+                h1.header__logo-title CyberTavern
+                a.header__logo-text Гайды по играм
+            div.header__color
+                button.header__color-light.button.menu-button Светлая
+                button.header__color-auto.button.menu-button Авто
+                button.header__color-dark.button.menu-button Темная
+        main.gallery
+            div.gallery__container
+        footer
