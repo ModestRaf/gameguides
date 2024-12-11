@@ -1,10 +1,10 @@
 .menu-button {
-  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 1%));
-  --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
+  --primary: #60d5ed;
+  --shadow-primary: black;
   --primary-hue: 0;
   --primary-lightness: 50;
-  --color: hsl(0, 0%, 100%);
-  --font-size: 26px;
+  --color: black;
+  --font-size: 24px;
   --shadow-primary-hue: 180;
   --label-size: 9px;
   --shadow-secondary-hue: 60;
@@ -19,7 +19,7 @@
   --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
   --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
   --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
-  font-family: 'Cyber', sans-serif;
+  font-family: Disket, sans-serif;
   color: var(--color);
   background: transparent;
   text-transform: uppercase;
@@ -29,9 +29,10 @@
   position: relative;
   font-weight: 700;
   border: 0;
-  min-width: 300px;
+  width: 300px;
   height: 75px;
-  line-height: 75px;
+  line-height: 55px;
+  z-index: 1;
 }
 
 .menu-button:after,
@@ -62,7 +63,7 @@
   line-height: 1;
   bottom: -5%;
   right: 5%;
-  color: hsl(0, 0%, 0%);
+  color: black;
   font-size: var(--label-size);
 }
 
@@ -133,11 +134,11 @@
   }
   35%, 45% {
     clip-path: var(--clip-six);
-    transform: translate(calc(var(--shimmy-distance) * -1%));
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
   }
   40% {
     clip-path: var(--clip-six);
-    transform: translate(calc(var(--shimmy-distance) * 1%));
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
   }
   50% {
     clip-path: var(--clip-six);
