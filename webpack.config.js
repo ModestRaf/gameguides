@@ -82,7 +82,7 @@ module.exports = {
                         plugins: [
                             ['gifsicle', { interlaced: true }],
                             ['jpegtran', { progressive: true }],
-                            ['optipng', { optimizationLevel: 7 }], // Увеличьте уровень сжатия
+                            ['optipng', { optimizationLevel: 5 }],
                             ['svgo', { name: 'preset-default' }],
                         ],
                     },
