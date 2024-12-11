@@ -1,13 +1,11 @@
 @use '../scss/variables' as *;
+@use '../scss/animations' as *;
 
 .menu-button {
   font-family: Disket, sans-serif;
   color: $color;
-  background: transparent;
   text-transform: uppercase;
   font-size: $font-size;
-  outline: transparent;
-  letter-spacing: 2px;
   position: relative;
   font-weight: 700;
   border: 0;
@@ -15,6 +13,13 @@
   height: 75px;
   line-height: 55px;
   z-index: 1;
+}
+
+.menu-button:active {
+  top: calc($border * 1);
+  left: calc($border * 1);
+  right: calc($border * 1);
+  bottom: calc($border * 1);
 }
 
 .menu-button:after,
@@ -78,63 +83,15 @@
   z-index: -1;
 }
 
-@keyframes glitch {
-  0% {
-    clip-path: $clip-one;
-  }
-  2%, 8% {
-    clip-path: $clip-two;
-    transform: translate(calc($shimmy-distance * -1%), 0);
-  }
-  6% {
-    clip-path: $clip-two;
-    transform: translate(calc($shimmy-distance * 1%), 0);
-  }
-  9% {
-    clip-path: $clip-two;
-    transform: translate(0, 0);
-  }
-  10% {
-    clip-path: $clip-three;
-    transform: translate(calc($shimmy-distance * 1%), 0);
-  }
-  13% {
-    clip-path: $clip-three;
-    transform: translate(0, 0);
-  }
-  14%, 21% {
-    clip-path: $clip-four;
-    transform: translate(calc($shimmy-distance * 1%), 0);
-  }
-  25% {
-    clip-path: $clip-five;
-    transform: translate(calc($shimmy-distance * 1%), 0);
-  }
-  30% {
-    clip-path: $clip-five;
-    transform: translate(calc($shimmy-distance * -1%), 0);
-  }
-  35%, 45% {
-    clip-path: $clip-six;
-    transform: translate(calc($shimmy-distance * -1%), 0);
-  }
-  40% {
-    clip-path: $clip-six;
-    transform: translate(calc($shimmy-distance * -1%), 0);
-  }
-  50% {
-    clip-path: $clip-six;
-    transform: translate(0, 0);
-  }
-  55% {
-    clip-path: $clip-seven;
-    transform: translate(calc($shimmy-distance * 1%), 0);
-  }
-  60% {
-    clip-path: $clip-seven;
-    transform: translate(0, 0);
-  }
-  31%, 61%, 100% {
-    clip-path: $clip-four;
-  }
+.navigation__button {
+  text-transform: uppercase;
+  border-left: solid 1px white;
+  border-right: solid 1px white;
+  min-height: inherit;
+  min-width: 150px;
+}
+
+.navigation__button:active {
+  border-left: solid 3px lightgray;
+  border-right: solid 3px lightgray;
 }
