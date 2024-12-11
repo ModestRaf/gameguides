@@ -57,7 +57,7 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: url(/images/XTKTGO.c267795e0c8406278dab.png) no-repeat center;
+  background: url(images/XTKTGO.c267795e0c8406278dab.png) no-repeat center;
   background-size: cover;
   z-index: 1000;
   position: sticky;
@@ -380,17 +380,17 @@ main {
   font-family: Blender;
   font-style: normal;
   font-weight: 400;
-  src: url(/fonts/BlenderPro-Medium.2e8418291f661fd81f6f.woff2) format("woff2");
+  src: url(fonts/BlenderPro-Medium.2e8418291f661fd81f6f.woff2) format("woff2");
 }
 @font-face {
   font-family: LYAJKA;
   font-style: normal;
   font-weight: 400;
-  src: url(/fonts/Cyberpunk_RUS_BY_LYAJKA.4b5fd400e07daaf77a9b.ttf) format("truetype");
+  src: url(fonts/Cyberpunk_RUS_BY_LYAJKA.4b5fd400e07daaf77a9b.ttf) format("truetype");
 }
 @font-face {
   font-family: Disket;
   font-style: normal;
   font-weight: 400;
-  src: url(/fonts/Disket-Mono-Regular.7377dd2a75631272ed00.ttf) format("truetype");
+  src: url(fonts/Disket-Mono-Regular.7377dd2a75631272ed00.ttf) format("truetype");
 }
