@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const posixPath = path.posix || path; // для совместимости с разными версиями Node.js
 const FileManagerPlugin = require("filemanager-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
@@ -9,7 +10,8 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'index.[contenthash].js',
-        assetModuleFilename: path.join('images', '[name].[contenthash][ext]'),
+        assetModuleFilename: 'images/[name].[contenthash][ext]',
+        publicPath: '/', // Для абсолютных путей
     },
     module: {
         rules: [
@@ -60,6 +62,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
+            chunkFilename: '[id].[contenthash].css',
         }),
     ],
     devServer: {
