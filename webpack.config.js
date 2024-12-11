@@ -1,19 +1,30 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const posixPath = path.posix || path; // для совместимости с разными версиями Node.js
 const FileManagerPlugin = require("filemanager-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const isProduction = process.env.NODE_ENV === 'production';
+
+require('dotenv').config({
+    path: path.join(process.cwd(), process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : '.env')
+});
 
 module.exports = {
     entry: path.join(__dirname, 'src', 'index.js'),
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'index.[contenthash].js',
         assetModuleFilename: 'images/[name].[contenthash][ext]',
-        publicPath: '/', // Для абсолютных путей
+        publicPath: isProduction ? '/gameguides/' : '/',
     },
     mode: 'development',
+    devServer: {
+        watchFiles: path.join(__dirname, 'src'),
+        static: path.resolve(__dirname, './dist'),
+        compress: true,
+        port: 8080,
+        open: true
+    },
     module: {
         rules: [
             {
@@ -66,13 +77,6 @@ module.exports = {
             chunkFilename: '[id].[contenthash].css',
         }),
     ],
-    devServer: {
-        watchFiles: path.join(__dirname, 'src'),
-        static: path.resolve(__dirname, './dist'), // путь, куда "смотрит" режим разработчика
-        compress: true, // это ускорит загрузку в режиме разработки
-        port: 8080, // порт, чтобы открывать сайт по адресу localhost:8080, но можно поменять порт
-        open: true // сайт будет открываться сам при запуске npm run dev
-    },
     optimization: {
         minimizer: [
             new ImageMinimizerPlugin({
