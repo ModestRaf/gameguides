@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "start": "webpack serve --open --mode development",
-    "predeploy": "npm run dev",
+    "dev": "webpack serve",
+    "build": "webpack",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],
@@ -32,7 +30,7 @@
     "mini-css-extract-plugin": "^2.9.1",
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^10.0.8",
-    "pug": "3.0.3",
+    "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.80.4",

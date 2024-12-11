@@ -13,6 +13,7 @@ module.exports = {
         assetModuleFilename: 'images/[name].[contenthash][ext]',
         publicPath: '/', // Для абсолютных путей
     },
+    mode: 'development',
     module: {
         rules: [
             {
@@ -67,7 +68,10 @@ module.exports = {
     ],
     devServer: {
         watchFiles: path.join(__dirname, 'src'),
-        port: 9000,
+        static: path.resolve(__dirname, './dist'), // путь, куда "смотрит" режим разработчика
+        compress: true, // это ускорит загрузку в режиме разработки
+        port: 8080, // порт, чтобы открывать сайт по адресу localhost:8080, но можно поменять порт
+        open: true // сайт будет открываться сам при запуске npm run dev
     },
     optimization: {
         minimizer: [
