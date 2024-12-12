@@ -13,6 +13,30 @@
   height: 75px;
   line-height: 55px;
   z-index: 1;
+
+  &__tag {
+    position: absolute;
+    padding: 1px 4px;
+    letter-spacing: 1px;
+    line-height: 1;
+    bottom: -5%;
+    right: 5%;
+    color: black;
+    font-size: $label-size;
+  }
+
+  &__glitch {
+    position: absolute;
+    top: calc($border * -1);
+    left: calc($border * -1);
+    right: calc($border * -1);
+    bottom: calc($border * -1);
+    background: $shadow-primary;
+    text-shadow: 2px 2px $shadow-primary, -2px -2px $shadow-secondary;
+    clip-path: $clip;
+    animation: glitch 2s infinite;
+    display: none;
+  }
 }
 
 .menu-button:active {
@@ -41,30 +65,6 @@
 
 .menu-button:after {
   background: $primary;
-}
-
-.menu-button__tag {
-  position: absolute;
-  padding: 1px 4px;
-  letter-spacing: 1px;
-  line-height: 1;
-  bottom: -5%;
-  right: 5%;
-  color: black;
-  font-size: $label-size;
-}
-
-.menu-button__glitch {
-  position: absolute;
-  top: calc($border * -1);
-  left: calc($border * -1);
-  right: calc($border * -1);
-  bottom: calc($border * -1);
-  background: $shadow-primary;
-  text-shadow: 2px 2px $shadow-primary, -2px -2px $shadow-secondary;
-  clip-path: $clip;
-  animation: glitch 2s infinite;
-  display: none;
 }
 
 .menu-button:hover .menu-button__glitch {

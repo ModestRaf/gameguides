@@ -48,7 +48,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
             },
             {
-                test: /\.(png|jpg|jpeg|gif)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
                 type: 'asset/resource',
             },
             {
@@ -62,8 +62,24 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src', 'template.pug'),
+            template: path.join(__dirname, 'src/pages', 'template.pug'),
             filename: 'index.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/pages/includes', 'head.pug'),
+            filename: 'head.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/pages/includes', 'header.pug'),
+            filename: 'header.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/pages/includes', 'navigation.pug'),
+            filename: 'navigation.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/pages', 'goodvibes.pug'),
+            filename: 'goodvibes.html',
         }),
         new FileManagerPlugin({
             events: {
