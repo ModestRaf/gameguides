@@ -9,14 +9,14 @@
   position: relative;
   font-weight: 700;
   border: 0;
-  width: 300px;
+  width: 250px;
   height: 75px;
   line-height: 55px;
   z-index: 1;
 
   &__tag {
     position: absolute;
-    padding: 1px 4px;
+    padding: 2px 1px;
     letter-spacing: 1px;
     line-height: 1;
     bottom: -5%;
