@@ -2,8 +2,38 @@ main {
   background: black;
   min-width: inherit;
   width: 100%;
-  padding: 50px 30px 100px 30px;
+  position: relative;
+  padding: 120px 30px 100px 30px;
   z-index: 999;
+}
+
+main:before {
+  content: " ";
+  display: block;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background-color: #f9f002;
+  position: absolute;
+  clip-path: polygon(
+                  calc(22% + 28px) 70px,
+                  calc(22% + 45px) 85px,
+                  34% 85px,
+                  calc(34% + 15px) 70px,
+                  70% 70px
+  );
+}
+
+main:after {
+  content: " ";
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #f9f002;
+  position: absolute;
 }
 
 .playlists__container {
