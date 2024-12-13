@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Обработчик клика
         card.addEventListener('click', () => {
-            window.location.href = data.url;
+            if (data.url) {
+                window.location.href = data.url;
+            }
         });
 
         return card;
@@ -23,6 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Функция для добавления карточек в контейнер
     function populateContainer(template, container) {
+        // Очищаем контейнер перед добавлением карточек
+        container.innerHTML = '';
+
         cardsData.forEach(data => container.appendChild(createCard(template, data)));
     }
 
@@ -33,22 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (cardTemplate && playlistsContainer) {
             populateContainer(cardTemplate, playlistsContainer);
+        } else {
+            console.error('Шаблон или контейнер не найдены!');
         }
     }
 
-    // Функция для наблюдения за DOM
-    function observeDOM() {
-        const observer = new MutationObserver(() => {
-            if (document.getElementById('playlists-card-template') && document.querySelector('.playlists__container')) {
-                observer.disconnect(); // Отключаем наблюдение
-                initializeApp();
-            }
-        });
-
-        observer.observe(document.body, { childList: true, subtree: true });
-    }
-
     // Инициализация
-    initializeApp(); // Попробуем сразу
-    observeDOM(); // Запустим наблюдение на случай, если элементы загрузятся позже
+    initializeApp();
 });
