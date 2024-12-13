@@ -4,6 +4,10 @@ html(lang='ru')
     body.page
         include includes/header
         include includes/navigation
-        main.gallery
-            div.gallery__container
+        main.playlists
+            div.playlists__container
+                template#playlists-card-template
+                    button.playlists-card.button
+                        div.playlists-card-image
+                        h3.playlists-card-title
         footer

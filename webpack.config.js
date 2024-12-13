@@ -62,8 +62,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src/pages', 'template.pug'),
-            filename: 'index.html',
+            template: path.join(__dirname, 'src/pages', 'guides.pug'),
+            filename: 'guides.html',
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src/pages/includes', 'head.pug'),
@@ -78,8 +78,8 @@ module.exports = {
             filename: 'navigation.html',
         }),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src/pages', 'goodvibes.pug'),
-            filename: 'goodvibes.html',
+            template: path.join(__dirname, 'src/pages', 'template.pug'),
+            filename: 'index.html',
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src/pages', 'goodvibes-goodvibes.pug'),
