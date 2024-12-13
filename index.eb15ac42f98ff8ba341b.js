@@ -61,7 +61,7 @@ module.exports = __webpack_require__.p + "images/goodvibes-lcr.d934d0d8a119508d8
 var cardsData = [{
   title: "Good Vibes Of Таверна",
   imageUrl: __webpack_require__(831),
-  url: "goodvibes-goodvibes.html" // URL для перехода
+  url: "goodvibes-goodvibes.html"
 }, {
   title: "Laugh, Cry, Repeat",
   imageUrl: __webpack_require__(966)
@@ -102,13 +102,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Обработчик клика
     card.addEventListener('click', function () {
-      window.location.href = data.url;
+      if (data.url) {
+        window.location.href = data.url;
+      }
     });
     return card;
   }
 
   // Функция для добавления карточек в контейнер
   function populateContainer(template, container) {
+    // Очищаем контейнер перед добавлением карточек
+    container.innerHTML = '';
     cardsData.forEach(function (data) {
       return container.appendChild(createCard(template, data));
     });
@@ -120,26 +124,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var playlistsContainer = document.querySelector('.playlists__container');
     if (cardTemplate && playlistsContainer) {
       populateContainer(cardTemplate, playlistsContainer);
+    } else {
+      console.error('Шаблон или контейнер не найдены!');
     }
   }
 
-  // Функция для наблюдения за DOM
-  function observeDOM() {
-    var observer = new MutationObserver(function () {
-      if (document.getElementById('playlists-card-template') && document.querySelector('.playlists__container')) {
-        observer.disconnect(); // Отключаем наблюдение
-        initializeApp();
-      }
-    });
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-  }
-
   // Инициализация
-  initializeApp(); // Попробуем сразу
-  observeDOM(); // Запустим наблюдение на случай, если элементы загрузятся позже
+  initializeApp();
 });
 /******/ })()
 ;
