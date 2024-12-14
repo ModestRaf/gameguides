@@ -10,18 +10,18 @@ main {
 main:before {
   content: " ";
   display: block;
-  top: -31px;
+  top: 39px;
   left: 0;
   width: 100%;
   height: 90px;
   background-color: #f9f002;
   position: absolute;
   clip-path: polygon(
-                  calc(22% + 28px) 70px,
-                  calc(22% + 45px) 85px,
-                  34% 85px,
-                  calc(34% + 15px) 70px,
-                  70% 70px
+                  24.8% 0%, /* Пересчитанное значение */
+                  26.5% 15px, /* Пересчитанное значение */
+                  34% 15px,
+                  35.5% 0%, /* Пересчитанное значение */
+                  70% 0%
   );
   z-index: 10;
 }
@@ -49,4 +49,19 @@ main:after {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (width <= 1050px) {
+  main {
+    padding-top: 40px;
+  }
+
+  main:before {
+    display: none;
+  }
+
+  main:after {
+    display: none;
+  }
 }

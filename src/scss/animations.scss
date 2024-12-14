@@ -32,31 +32,6 @@
     clip-path: $clip-five;
     transform: translate(calc($shimmy-distance * 1%), 0);
   }
-  /*
-  30% {
-    clip-path: $clip-five;
-    transform: translate(calc($shimmy-distance * -1%), 0);
-  }
-  35%, 45% {
-    clip-path: $clip-six;
-    transform: translate(calc($shimmy-distance * -1%), 0);
-  }
-  40% {
-    clip-path: $clip-six;
-    transform: translate(calc($shimmy-distance * -1%), 0);
-  }
-  50% {
-    clip-path: $clip-six;
-    transform: translate(0, 0);
-  }
-  55% {
-    clip-path: $clip-seven;
-    transform: translate(calc($shimmy-distance * 1%), 0);
-  }
-  60% {
-    clip-path: $clip-seven;
-    transform: translate(0, 0);
-  } */
   31%, 61%, 100% {
     clip-path: $clip-four;
   }

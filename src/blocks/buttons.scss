@@ -22,7 +22,7 @@
     bottom: -5%;
     right: 5%;
     color: black;
-    font-size: $label-size;
+    font-size: 7px;
   }
 
   &__glitch {
@@ -94,4 +94,26 @@
 .navigation__button:active {
   border-left: solid 3px lightgray;
   border-right: solid 3px lightgray;
+}
+
+@media (width <= 1050px) {
+  .menu-button {
+    width: 200px;
+
+    &__tag {
+      font-size: 6px;
+      padding: 4px 1px;
+    }
+  }
+}
+
+@media (width <= 680px) {
+  .menu-button {
+    width: 150px;
+    height: 55px;
+
+    &__tag {
+      display: none;
+    }
+  }
 }
