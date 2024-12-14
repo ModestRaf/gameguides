@@ -37,19 +37,16 @@ main:after {
   position: absolute;
 }
 
-.playlists__container {
+.container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
 }
 
-.video-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+.gallery {
+  height: 2000px; //тест
 }
 
 @media (width <= 1050px) {
