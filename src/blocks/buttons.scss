@@ -5,7 +5,7 @@
   font-family: Disket, Arial, sans-serif;
   color: $color;
   text-transform: uppercase;
-  font-size: $font-size;
+  font-size: 24px;
   position: relative;
   font-weight: 700;
   border: 0;
@@ -96,7 +96,7 @@
   border-right: solid 3px lightgray;
 }
 
-@media (width <= 1050px) {
+@media (width <= 1080px) {
   .menu-button {
     width: 200px;
 
@@ -115,5 +115,13 @@
     &__tag {
       display: none;
     }
+  }
+}
+
+@media (width <= 680px) {
+  .menu-button {
+    width: 110px;
+    height: 50px;
+    font-size: 18px;
   }
 }

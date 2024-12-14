@@ -1,6 +1,4 @@
 .header {
-  min-height: 100px;
-  min-width: inherit;
   max-width: inherit;
   width: 100%;
   padding: 2rem;
@@ -25,13 +23,13 @@
 
   &__logo-title {
     font-family: LYAJKA, Arial, sans-serif;
-    font-size: 80px;
+    font-size: 6vw;
   }
 
   &__logo-text {
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 2.5vw;
   }
 
   &__color {
@@ -44,16 +42,24 @@
   }
 }
 
-@media (width <= 1050px) {
+@media (width <= 1080px) {
   .header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-  }
 
-  .header__color {
-    flex-direction: row;
+    &__logo-title {
+      font-size: 10vw;
+    }
+
+    &__logo-text {
+      font-size: 3.5vw;
+    }
+
+    &__color {
+      flex-direction: row;
+    }
   }
 }
 
@@ -61,13 +67,5 @@
   .header {
     padding-bottom: 15px;
     padding-top: 15px;
-  }
-
-  .header__logo-title {
-    font-size: 60px;
-  }
-
-  .header__logo-text {
-    font-size: 24px;
   }
 }
