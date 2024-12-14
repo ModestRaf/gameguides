@@ -10,3 +10,15 @@
   position: sticky;
   z-index: 1000;
 }
+
+@media (width <= 680px) {
+  .navigation {
+    min-height: 50px;
+  }
+}
+
+@media (width <= 520px) {
+  .navigation {
+    min-height: 44px;
+  }
+}
