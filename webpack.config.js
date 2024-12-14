@@ -85,6 +85,10 @@ module.exports = {
             template: path.join(__dirname, 'src/pages', 'goodvibes-goodvibes.pug'),
             filename: 'goodvibes-goodvibes.html',
         }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/pages', 'goodvibes-lcr.pug'),
+            filename: 'goodvibes-lcr.html',
+        }),
         new FileManagerPlugin({
             events: {
                 onStart: {

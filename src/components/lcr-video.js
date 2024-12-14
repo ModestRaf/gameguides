@@ -1,7 +1,7 @@
-import { GoodvibesIds } from './data.js';
+import { LaughtCryIds } from './data.js';
 import {createVideoIframe} from "../index";
 
-export function initGoodVibes(container) {
+export function initLcr(container) {
     if (!container) {
         console.error('Контейнер для видео не передан!');
         return;
@@ -9,7 +9,7 @@ export function initGoodVibes(container) {
 
     container.innerHTML = ''; // Очищаем контейнер
 
-    GoodvibesIds.forEach(videoId => {
+    LaughtCryIds.forEach(videoId => {
         const iframe = createVideoIframe(videoId);
         container.appendChild(iframe);
     });
