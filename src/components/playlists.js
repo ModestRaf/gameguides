@@ -7,13 +7,6 @@ export function createCard(template, data) {
     card.querySelector('.playlists-card-title').textContent = data.title;
     card.querySelector('.playlists-card-image').style.backgroundImage = `url(${data.imageUrl})`;
 
-    // Обработчик
-    card.addEventListener('click', () => {
-        if (data.url) {
-            window.location.href = data.url;
-        }
-    });
-
     return card;
 }
 

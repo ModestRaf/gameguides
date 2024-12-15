@@ -1,16 +1,11 @@
 import { GoodvibesIds } from './data.js';
-import {createVideoIframe} from "../index";
+import {createVideoIframe, updateContainer} from "../index";
 
 export function initGoodVibes(container) {
-    if (!container) {
-        console.error('Контейнер для видео не передан!');
-        return;
-    }
-
-    container.innerHTML = ''; // Очищаем контейнер
-
+    const fragment = document.createDocumentFragment();
     GoodvibesIds.forEach(videoId => {
         const iframe = createVideoIframe(videoId);
-        container.appendChild(iframe);
+        fragment.appendChild(iframe);
     });
+    updateContainer(container, fragment);
 }

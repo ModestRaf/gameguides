@@ -6,25 +6,23 @@ import { initGoodVibes } from "./components/goodvibes-video";
 import { populateContainer } from "./components/playlists";
 import { initLcr } from "./components/lcr-video";
 
-const goodvibesContainer = document.querySelector('.goodvibes');
-const lcrContainer = document.querySelector('.lcr');
 const cardTemplate = document.getElementById('playlists-card-template');
-const playlistsContainer = document.querySelector('.playlists__container');
+const mainContainer = document.querySelector('.playlists__container.container');
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (cardTemplate && playlistsContainer) {
-        populateContainer(cardTemplate, playlistsContainer);
+    if (cardTemplate && mainContainer) {
+        populateContainer(cardTemplate, mainContainer);
+        setupCardClickHandlers(mainContainer);
     }
-    if (goodvibesContainer) {
-        initGoodVibes(goodvibesContainer);
-    }
-    if (lcrContainer) {
-        initLcr(lcrContainer);
-    }
-
-    // Инициализация MutationObserver для всех контейнеров
-    setupMutationObserver([goodvibesContainer, lcrContainer, playlistsContainer]);
+    // Инициализация MutationObserver
+    setupMutationObserver([mainContainer]);
 });
+
+// Обновление содержимого контейнера
+export function updateContainer(container, newContent) {
+    container.innerHTML = ''; // Очищаем контейнер
+    container.appendChild(newContent); // Добавляем новый контент
+}
 
 // Функция для создания iframe
 export function createVideoIframe(videoId) {
@@ -50,7 +48,7 @@ function setupMutationObserver(containers) {
                 mutation.addedNodes.forEach(node => {
                     if (node instanceof HTMLElement && node.tagName === 'IFRAME') {
                         console.log('Новый iframe добавлен:', node);
-                        // Здесь можно добавить дополнительную логику для обработки нового iframe
+                        //можно добавить дополнительную логику для обработки нового iframe
                     }
                 });
             }
@@ -63,6 +61,23 @@ function setupMutationObserver(containers) {
                 childList: true, // Отслеживаем добавление/удаление дочерних элементов
                 subtree: true,   // Отслеживаем изменения во всем поддереве
             });
+        }
+    });
+}
+
+// Настройка кликов для карточек
+function setupCardClickHandlers(container) {
+    container.addEventListener('click', (event) => {
+        const target = event.target.closest('.playlists-card');
+        if (target) {
+            const cardIndex = Array.from(container.children).indexOf(target);
+            if (cardIndex === 0) {
+                initGoodVibes(container);
+            } else if (cardIndex === 1) {
+                initLcr(container);
+            } else {
+                console.warn('Функция для этой карточки еще не реализована');
+            }
         }
     });
 }
