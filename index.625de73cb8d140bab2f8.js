@@ -77,7 +77,8 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  g: () => (/* binding */ createVideoIframe)
+  g: () => (/* binding */ createVideoIframe),
+  Z: () => (/* binding */ updateContainer)
 });
 
 ;// ./src/components/data.js
@@ -85,12 +86,10 @@ var GoodvibesIds = ['7GD91esrJv8', '6VMFfIS8AsE', 'X2E5NRZ7YMs', 'TtKzENzJdUs', 
 var LaughtCryIds = ['eWzOGm241po', 'fCcjngycS68', '_nKDRXcj3Xk', '5Ktgnj98OpM', 'u3PpfNJv9K8'];
 var cardsData = [{
   title: "Good Vibes Of Таверна",
-  imageUrl: __webpack_require__(831),
-  url: "goodvibes-goodvibes.html"
+  imageUrl: __webpack_require__(831)
 }, {
   title: "Laugh, Cry, Repeat",
-  imageUrl: __webpack_require__(966),
-  url: "goodvibes-lcr.html"
+  imageUrl: __webpack_require__(966)
 }, {
   title: "Genshin Impact",
   imageUrl: __webpack_require__(117)
@@ -99,16 +98,12 @@ var cardsData = [{
 
 
 function initGoodVibes(container) {
-  if (!container) {
-    console.error('Контейнер для видео не передан!');
-    return;
-  }
-  container.innerHTML = ''; // Очищаем контейнер
-
+  var fragment = document.createDocumentFragment();
   GoodvibesIds.forEach(function (videoId) {
     var iframe = createVideoIframe(videoId);
-    container.appendChild(iframe);
+    fragment.appendChild(iframe);
   });
+  updateContainer(container, fragment);
 }
 ;// ./src/components/playlists.js
 
@@ -119,13 +114,6 @@ function createCard(template, data) {
   var card = cardClone.querySelector('.playlists-card');
   card.querySelector('.playlists-card-title').textContent = data.title;
   card.querySelector('.playlists-card-image').style.backgroundImage = "url(".concat(data.imageUrl, ")");
-
-  // Обработчик
-  card.addEventListener('click', function () {
-    if (data.url) {
-      window.location.href = data.url;
-    }
-  });
   return card;
 }
 
@@ -140,16 +128,12 @@ function populateContainer(template, container) {
 
 
 function initLcr(container) {
-  if (!container) {
-    console.error('Контейнер для видео не передан!');
-    return;
-  }
-  container.innerHTML = ''; // Очищаем контейнер
-
+  var fragment = document.createDocumentFragment();
   LaughtCryIds.forEach(function (videoId) {
     var iframe = createVideoIframe(videoId);
-    container.appendChild(iframe);
+    fragment.appendChild(iframe);
   });
+  updateContainer(container, fragment);
 }
 ;// ./src/index.js
 
@@ -159,24 +143,22 @@ function initLcr(container) {
 
 
 
-var goodvibesContainer = document.querySelector('.goodvibes');
-var lcrContainer = document.querySelector('.lcr');
 var cardTemplate = document.getElementById('playlists-card-template');
-var playlistsContainer = document.querySelector('.playlists__container');
+var mainContainer = document.querySelector('.playlists__container.container');
 document.addEventListener('DOMContentLoaded', function () {
-  if (cardTemplate && playlistsContainer) {
-    populateContainer(cardTemplate, playlistsContainer);
+  if (cardTemplate && mainContainer) {
+    populateContainer(cardTemplate, mainContainer);
+    setupCardClickHandlers(mainContainer);
   }
-  if (goodvibesContainer) {
-    initGoodVibes(goodvibesContainer);
-  }
-  if (lcrContainer) {
-    initLcr(lcrContainer);
-  }
-
-  // Инициализация MutationObserver для всех контейнеров
-  setupMutationObserver([goodvibesContainer, lcrContainer, playlistsContainer]);
+  // Инициализация MutationObserver
+  setupMutationObserver([mainContainer]);
 });
+
+// Обновление содержимого контейнера
+function updateContainer(container, newContent) {
+  container.innerHTML = ''; // Очищаем контейнер
+  container.appendChild(newContent); // Добавляем новый контент
+}
 
 // Функция для создания iframe
 function createVideoIframe(videoId) {
@@ -201,7 +183,7 @@ function setupMutationObserver(containers) {
         mutation.addedNodes.forEach(function (node) {
           if (node instanceof HTMLElement && node.tagName === 'IFRAME') {
             console.log('Новый iframe добавлен:', node);
-            // Здесь можно добавить дополнительную логику для обработки нового iframe
+            //можно добавить дополнительную логику для обработки нового iframe
           }
         });
       }
@@ -214,6 +196,23 @@ function setupMutationObserver(containers) {
         // Отслеживаем добавление/удаление дочерних элементов
         subtree: true // Отслеживаем изменения во всем поддереве
       });
+    }
+  });
+}
+
+// Настройка кликов для карточек
+function setupCardClickHandlers(container) {
+  container.addEventListener('click', function (event) {
+    var target = event.target.closest('.playlists-card');
+    if (target) {
+      var cardIndex = Array.from(container.children).indexOf(target);
+      if (cardIndex === 0) {
+        initGoodVibes(container);
+      } else if (cardIndex === 1) {
+        initLcr(container);
+      } else {
+        console.warn('Функция для этой карточки еще не реализована');
+      }
     }
   });
 }
