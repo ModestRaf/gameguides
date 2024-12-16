@@ -22,7 +22,7 @@ module.exports = {
         watchFiles: path.join(__dirname, 'src'),
         static: path.resolve(__dirname, './dist'),
         compress: true,
-        port: 8080,
+        port: 9000,
         open: true
     },
     module: {
@@ -61,18 +61,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src/pages/includes', 'head.pug'),
-            filename: 'head.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src/pages/includes', 'header.pug'),
-            filename: 'header.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src/pages/includes', 'navigation.pug'),
-            filename: 'navigation.html',
-        }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src/pages', 'template.pug'),
             filename: 'index.html',

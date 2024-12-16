@@ -1,11 +1,6 @@
 $primary: #60d5ed;
 $shadow-primary: black;
-$primary-hue: 0;
-$primary-lightness: 50;
-$color: black;
-$shadow-primary-hue: 180;
-$shadow-secondary-hue: 60;
-$shadow-secondary: ($shadow-secondary-hue, 90%, 60%);
+$shadow-secondary: (60, 90%, 60%);
 $clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
 $border: 4px;
 $shimmy-distance: 5;

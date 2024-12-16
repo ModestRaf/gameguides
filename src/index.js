@@ -7,7 +7,7 @@ import { populateContainer } from "./components/playlists";
 import { initLcr } from "./components/lcr-video";
 
 const cardTemplate = document.getElementById('playlists-card-template');
-const mainContainer = document.querySelector('.playlists__container.container');
+const mainContainer = document.querySelector('.container');
 
 document.addEventListener('DOMContentLoaded', () => {
     if (cardTemplate && mainContainer) {
@@ -16,7 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Инициализация MutationObserver
     setupMutationObserver([mainContainer]);
+    // Настройка обработчиков для кнопок навигации
+    setupNavigationHandlers();
 });
+
 
 // Обновление содержимого контейнера
 export function updateContainer(container, newContent) {
@@ -79,5 +82,18 @@ function setupCardClickHandlers(container) {
                 console.warn('Функция для этой карточки еще не реализована');
             }
         }
+    });
+}
+
+// Настройка обработчиков для кнопок навигации
+function setupNavigationHandlers() {
+    const navigationButtons = document.querySelectorAll('.navigation__button');
+    navigationButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const href = button.getAttribute('data-href');
+            if (href) {
+                window.location.href = href;
+            }
+        });
     });
 }
