@@ -28,5 +28,6 @@ export const cardsData = [
                 imageUrl: require("../images/goodvibes/goodvibes-lcr.jpg")
         },
         { title: "Genshin Impact",
-                imageUrl: require("../images/goodvibes/goodvibes-gi.jpg") },
+                imageUrl: require("../images/goodvibes/goodvibes-gi.jpg")
+        },
 ];

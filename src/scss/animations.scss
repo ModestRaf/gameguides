@@ -36,3 +36,18 @@
     clip-path: $clip-four;
   }
 }
+
+@keyframes buttonhover {
+  0% {
+    transform: skew(0deg);
+  }
+  5% {
+    transform: skew(10deg);
+  }
+  10% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
