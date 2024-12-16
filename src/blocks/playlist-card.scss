@@ -9,11 +9,8 @@
   flex-direction: column;
 }
 
-.playlists-card:hover, {
-  animation-name: buttonhover;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+.playlists-card:hover {
+  animation: buttonhover 2.5s linear infinite;
 }
 
 .playlists-card-title {
@@ -24,8 +21,7 @@
 .playlists-card-image {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
+  background: center / cover;
 }
 
 @keyframes buttonhover {
