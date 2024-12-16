@@ -7,36 +7,36 @@
   gap: 30px;
   background: url("../images/header/header.png") center / cover no-repeat;
   z-index: 1000;
-}
 
-.header__logo {
-  display: flex;
-  flex-direction: column;
-  color: black;
-  align-items: center;
-  gap: 10px;
-  grid-column: 2 / 3;
-  justify-self: center;
-  align-self: center;
-}
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    align-items: center;
+    gap: 10px;
+    grid-column: 2 / 3;
+    justify-self: center;
+    align-self: center;
+  }
 
-.header__logo-title {
-  font-family: LYAJKA, Arial, sans-serif;
-  font-size: 6vw;
-}
+  &__logo-title {
+    font-family: LYAJKA, Arial, sans-serif;
+    font-size: 6vw;
+  }
 
-.header__logo-text {
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 2.5vw;
-}
+  &__logo-text {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 2.5vw;
+  }
 
-.header__color {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  grid-column: 3 / 4;
-  justify-self: flex-end;
+  &__color {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    grid-column: 3 / 4;
+    justify-self: flex-end;
+  }
 }
 
 @media (width <= 1080px) {
@@ -45,18 +45,18 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
-  }
 
-  .header__logo-title {
-    font-size: 10vw;
-  }
+    &__logo-title {
+      font-size: 10vw;
+    }
 
-  .header__logo-text {
-    font-size: 3.5vw;
-  }
+    &__logo-text {
+      font-size: 3.5vw;
+    }
 
-  .header__color {
-    flex-direction: row;
+    &__color {
+      flex-direction: row;
+    }
   }
 }
 
